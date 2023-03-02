@@ -12,6 +12,7 @@ if   (media >= 7.0):
     print("Aluno aprovado")
 elif (media < 5.0):
     print("Aluno reprovado")
+
     nota_exame = float(input())
     print("Nota do exame: %0.1f" %nota_exame)
     media = (media + nota_exame)/2
