@@ -1,27 +1,25 @@
 #include <iostream>
-#include <stdio.h>
-
 using namespace std;
 
-int main(){
-    int a, b, c, d;
-    
-    cin >> a >> b >> c >> d;
-    
-    int inicio = (a * 60) + b;
-    int final =  (c * 60) + d;
-    int duracao = 0;
-    
-    if(a <= c){
-              duracao = final - inicio;
-              if(duracao == 0)
-                printf("O JOGO DUROU %d HORA(S) E %d MINUTO(S)\n",24,duracao%60);
-              else
-                printf("O JOGO DUROU %d HORA(S) E %d MINUTO(S)\n",(duracao - duracao%60)/60,duracao%60);
-    }else{
-        duracao = ((24 * 60) - inicio) + final;
-        printf("O JOGO DUROU %d HORA(S) E %d MINUTO(S)\n",(duracao - duracao%60)/60,duracao%60);
+int main()
+{                                                                     
+    int hi, hf, mi, mf, tempo_hora, tempo_minuto;
+    cin >> hi >> mi >> hf >> mf;
+
+
+    tempo_hora = hf-hi;
+    tempo_minuto = mf-mi;
+
+    if ((tempo_hora <= 0) && (tempo_minuto <= 0)) {
+    tempo_hora += 24;
+    }
+    if(tempo_minuto < 0){
+    tempo_minuto += 60;
+    tempo_hora--;
     }
     
-return 0;
+   
+    cout << "O JOGO DUROU " << tempo_hora << " HORA(S) E " << tempo_minuto << " MINUTO(S)" << endl;
+
+return 0;    
 }
